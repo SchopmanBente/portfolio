@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('app_landingpage.urls', namespace='landingpage')),
     path('skills/', include('app_skills.urls', namespace='skills')),
+    path('work/',include('app_workexperience.urls', namespace='work')),
     path('portfolio/', include('app_portfolio.urls', namespace='portfolio')),
 ]
