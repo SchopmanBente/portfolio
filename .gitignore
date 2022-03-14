@@ -1,0 +1,13 @@
+../.idea/
+ app_landingpage/__pycache__/
+ app_landingpage/migrations/
+ app_portfolio/__pycache__/
+ app_portfolio/migrations/
+ app_skills/__pycache__/
+ app_skills/migrations/
+ app_workexperience/__pycache__/
+ app_workexperience/migrations/
+ db.sqlite3
+ media/
+portfolio/__pycache__/
+
