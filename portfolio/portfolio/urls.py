@@ -13,13 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path, include
+from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('app_landingpage.urls', namespace='landingpage')),
+    path('', include('app_landingpage.urls', namespace='landingpage')),
     path('skills/', include('app_skills.urls', namespace='skills')),
-    path('work/',include('app_workexperience.urls', namespace='work')),
+    path('work/', include('app_workexperience.urls', namespace='work')),
     path('portfolio/', include('app_portfolio.urls', namespace='portfolio')),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
+
+
+i18n_patterns  = [
+    path(_('nl/'), include('app_nl.urls')),
+    path('', include('app_landingpage.urls')),
+]
+urlpatterns += i18n_patterns

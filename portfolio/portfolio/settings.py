@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_DIR = 'templates'
@@ -53,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
+
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -68,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -106,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -122,7 +125,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
 )
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -131,5 +133,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # media
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://127.0.0.1:8000/media/'
 
+# languages
+USE_I18N = True
+
+# Default languages
+LANGUAGE_CODE = "en"
+
+# Provide a lists of languages which your site supports.
+LANGUAGES = (
+    ('nl', _('Dutch')),
+    ('en', _('English')),
+)
+
+# If you set this to False, Django will not format dates, numbers and
+# Use calendars according to the current locale.
+USE_L10N = True
+
+# Contains the path list where Django should look into for django.po files for all supported languages
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
