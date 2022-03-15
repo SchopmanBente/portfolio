@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
+<div class="container">
+    {% for x in pics %}
+    <img src="{{ x.image.url }}" class="img-fluid" alt="Responsive image">
+    <p class="caption"> {{ x.caption }}</p>
+    {% endfor %}
+</div>
 <div class="row" id="landingpage_row">
 
     <aside id="me_info" class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
         <img src="{{MEDIA_URL}}{{ landingpage.picture }}"/>
-        <img src="http://127.0.0.1:8000/uploads/{{ MEDIA_URL }}{{ landingpage.picture }}" alt="Bente Schopman"
+        <img src="{{ landingpage.picture.image.url }}" alt="Bente Schopman"
              class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">>
         <div class="col-1 col-sm-1 col-xs-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
             <a href="{{ landingpage.github_url }}">
@@ -18,13 +26,15 @@
         </div>
     </aside>
     <section id="landingpage_content">
-        <h1> {{ landingpage.title }} </h1>
+        {% trans "This is a translation" %}<br><br>
+        <h1> {% blocktrans with landingpage_t='landingpage.title' %} This is {{ landingpage_t }} Block trans is
+            powerful!{% endblocktrans %}</h1>
         <h2> {{ landingpage.subtitle }}</h2>
         <p>{{ landingpage.about}}</p>
         <article id="actions">
             <a href="mailto:{{  landingpage.email }}">Contact me!</a> or
             <a>Download my CV!</a> or
-           <a href="{% url 'app_portfolio:index' %}">Learn more about me!</a>
+            <a href="{% url 'app_portfolio:index' %}">Learn more about me!</a>
 
         </article>
     </section>

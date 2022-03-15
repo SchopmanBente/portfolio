@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'app_portfolio',
     'app_skills',
     'app_landingpage',
+    'app_nl',
 ]
 
 MIDDLEWARE = [
@@ -142,10 +144,18 @@ USE_I18N = True
 LANGUAGE_CODE = "en"
 
 # Provide a lists of languages which your site supports.
+gettext = lambda s: s
+LANGUAGES = (
+    ('nl', gettext('Dutch')),
+    ('en', gettext('English')),
+)
+
+"""
 LANGUAGES = (
     ('nl', _('Dutch')),
     ('en', _('English')),
 )
+ """
 
 # If you set this to False, Django will not format dates, numbers and
 # Use calendars according to the current locale.
@@ -155,3 +165,7 @@ USE_L10N = True
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
+
+# file and directory permissions
+FILE_UPLOAD_PERMISSIONS = 0o644
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o777

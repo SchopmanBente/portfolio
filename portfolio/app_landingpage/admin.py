@@ -1,6 +1,6 @@
 import os
 
-from app_landingpage.models import LandingPage
+from app_landingpage.models import LandingPage , Image, Document
 from django.contrib import admin
 # Register your models here
 from django.forms import ModelForm
@@ -8,19 +8,21 @@ from django.core.files.storage import FileSystemStorage
 from django.core.files.uploadhandler import FileUploadHandler
 from django.shortcuts import render
 
-admin.site.register(LandingPage)
 
+admin.site.register(LandingPage)
+admin.site.register(Document)
+admin.site.register(Image)
 
 class PostForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        #self.fields["picture"].required = True
+        self.fields["picture"].required = True
         self.fields["title"].required = True
         self.fields["subtitle"].required = True
         self.fields["about"].required = True
         self.fields["gitHub_url"].required = True
         self.fields["linkedin_url"].required = True
-        #self.fields["cv"].required = True
+        self.fields["cv"].required = True
         self.fields["email"].required = True
 
     class Meta:
