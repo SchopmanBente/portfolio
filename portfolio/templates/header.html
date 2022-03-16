@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <header>
-    <form action="{% url 'set_language' %}" method="post" class="form-group">
+    <form action="{% url 'set_language' %}" method="post" class="form-group col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ redirect_to }}">
         <select name="language" class="form-control">
@@ -10,11 +10,22 @@
             {% get_language_info_list for LANGUAGES as languages %}
             {% for language in languages %}
            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.name_local }} ({{ language.code }})git status
+                {{ language.name_local }} ({{ language.code }})
 
             </option>
             {% endfor %}
         </select>
-        <input type="submit" class="btn btn-primary" value="Go">
+        <input type="submit" class="btn btn-primary col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2" value="Go">
     </form>
+        {% if request.path == "/" %}
+            <p hidden> Het menu komt later!</p>
+        {% else %}
+            <nav>
+                <ul>
+                    <li> Test </li>
+                </ul>
+            </nav>
+        {% endif %}
+
+
 </header>

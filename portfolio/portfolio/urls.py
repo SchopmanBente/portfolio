@@ -31,7 +31,6 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 i18n_patterns = [
-    path(_('nl/'), include('app_nl.urls')),
     path('', include('app_landingpage.urls')),
 ]
 urlpatterns += i18n_patterns

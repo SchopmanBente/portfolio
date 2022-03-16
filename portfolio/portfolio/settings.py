@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'app_portfolio',
     'app_skills',
     'app_landingpage',
-    'app_nl',
 ]
 
 MIDDLEWARE = [
