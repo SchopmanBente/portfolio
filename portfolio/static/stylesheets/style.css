@@ -1,8 +1,17 @@
+{% load static %}
+
 body{
-    background-color: #fff;
+    background: white url({% static "images/python_logo_tiles_more.png" %}) repeat;
+
 }
 
 header {
+    background-color: #346C94;
+    color: #FCDF54;
+
+}
+
+div#container {
     align-content: center;
     background-color: #346C94;
     color: #FCDF54
@@ -22,7 +31,7 @@ landingpage_row{
 #me_info{
     background-color: #346C94;
     color: #FCDF54;
-    width: 40%;
+    width: 35%;
     align: left;
     justify-content: center
 
@@ -30,7 +39,7 @@ landingpage_row{
 #landingpage_content {
      background-color: #346C94;
      color: #FCDF54;
-     width: 60%;
+     width: 55%;
      align: right;
      justify-content: center
 }

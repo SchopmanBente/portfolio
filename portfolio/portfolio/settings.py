@@ -149,12 +149,7 @@ LANGUAGES = (
     ('en', gettext('English')),
 )
 
-"""
-LANGUAGES = (
-    ('nl', _('Dutch')),
-    ('en', _('English')),
-)
- """
+
 
 # If you set this to False, Django will not format dates, numbers and
 # Use calendars according to the current locale.

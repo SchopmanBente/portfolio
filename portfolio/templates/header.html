@@ -1,6 +1,7 @@
 {% load static %}
 {% load i18n %}
 <header>
+    {% if request.path == "/" %}
     <form action="{% url 'set_language' %}" method="post" class="form-group col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -9,7 +10,7 @@
             {% get_available_languages as LANGUAGES %}
             {% get_language_info_list for LANGUAGES as languages %}
             {% for language in languages %}
-           <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
                 {{ language.name_local }} ({{ language.code }})
 
             </option>
@@ -17,15 +18,45 @@
         </select>
         <input type="submit" class="btn btn-primary col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2" value="Go">
     </form>
-        {% if request.path == "/" %}
-            <p hidden> Het menu komt later!</p>
-        {% else %}
-            <nav>
+    <p hidden> Het menu komt later!</p>
+    {% else %}
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent" data-target="#navHeaderCollapse">
+            <div class="bg-dark p-4">
                 <ul>
-                    <li> Test </li>
+                    <li><a href="{% url 'app_landingspage:index' %}"> Home</a> </li>
+                    <li><a href="{% url 'app_portfolio:index' %}"> Portfolio <a></li>
+                    <li><a href="{% url 'app_skills:index'%}"> Skills </a></li>
+                    <li><a href="{% url 'app_workexperience:index' %}">Workexperience</a></li>
                 </ul>
-            </nav>
-        {% endif %}
+                <form action="{% url 'set_language' %}" method="post"
+                      class="form-group col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                    <select name="language" class="form-control">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" class="btn btn-primary col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2" value="Go">
+                </form>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    {% endif %}
 
 
 </header>
