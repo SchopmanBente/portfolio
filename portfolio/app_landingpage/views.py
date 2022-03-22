@@ -5,9 +5,7 @@ from django.views.generic import DetailView
 from .models import LandingPage, Image
 
 # Create your views here.
-def image_index(request):
-    pics=Image.objects.all()
-    return render(request, "index.html", {"pics":pics})
+
 def index(request):
     try:
         lp = LandingPage.objects.get(pk=1)

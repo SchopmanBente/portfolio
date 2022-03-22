@@ -1,6 +1,5 @@
 import os
-
-from app_landingpage.models import LandingPage , Image, Document
+from app_landingpage.models import LandingPage , Image, Document, NavigationAppPosition, NavigationApp, NavigationPosition
 from django.contrib import admin
 # Register your models here
 from django.forms import ModelForm
@@ -12,6 +11,16 @@ from django.shortcuts import render
 admin.site.register(LandingPage)
 admin.site.register(Document)
 admin.site.register(Image)
+admin.site.register(NavigationAppPosition)
+admin.site.register(NavigationApp)
+admin.site.register(NavigationPosition)
+
+
+class ImageAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Image
+    fields = ('image_tag',)
+    readonly_fields = ('image_tag',)
 
 class PostForm(ModelForm):
     def __init__(self, *args, **kwargs):
@@ -28,6 +37,7 @@ class PostForm(ModelForm):
     class Meta:
         model = LandingPage
         fields = '__all__'
+        proxy = True
     """ 
     def post(self,request):
         #self.simple_upload(request)

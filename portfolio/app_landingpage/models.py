@@ -1,14 +1,34 @@
 from django.db import models
 from django.db.models import ForeignKey
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.admin.decorators import display
+from django.db.models import Model
+from django.db.models.fields.files import ImageField
+from django.template.loader import get_template
 import os
 
 
 # Create your models here
+class NavigationApp(models.Model):
+    app = models.CharField(max_length=250)
 
-def get_upload_path_image(instance, filename):
-    return os.path.join("media/pictures/%s" % instance.image.image.url, filename)
+    def __str__(self):
+        return self.app
+
+
+class NavigationPosition(models.Model):
+    position = models.IntegerField()
+
+    def __str__(self):
+        return str(self.position)
+
+
+class NavigationAppPosition(models.Model):
+    app = models.ForeignKey(NavigationApp, on_delete=models.CASCADE)
+    position = models.ForeignKey(NavigationPosition, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "app: {} position: {}".format(self.app, str(self.position))
 
 class Image(models.Model):
     caption =  models.CharField(max_length=50)
@@ -17,7 +37,11 @@ class Image(models.Model):
     def __str__(self):
         return self.caption
 
-
+    def image_tag(self):
+        from django.utils.html import escape
+        return u'<img src="%s" />' % escape('media/inages/{}'.format(self.image.url))
+        image_tag.short_description = 'Image'
+        image_tag.allow_tags = True
 
 
 class Document(models.Model):

@@ -1,7 +1,7 @@
-{% load static %}
+
 
 body{
-    background: white url({% static "images/python_logo_tiles_more.png" %}) repeat;
+    background: white url("images/python_logo_tiles_more.png") repeat;
 
 }
 

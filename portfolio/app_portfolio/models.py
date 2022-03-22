@@ -1,21 +1,42 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
-class NavigationUrlModel(models.Model):
-    model = models.CharField(max_length=250)
 
-class Navigation(models.Model):
+# Create your models here.
+class NavigationApp(models.Model):
+    app = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.app
+
+
+class NavigationPosition(models.Model):
     position = models.IntegerField()
-    urlModel = models.ForeignKey(NavigationUrlModel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.position)
+
+
+class NavigationAppPosition(models.Model):
+    app = models.ForeignKey(NavigationApp, on_delete=models.CASCADE)
+    position = models.ForeignKey(NavigationPosition, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "app: {} position: {}".format(self.app, str(self.position))
 
 
 class ProgrammingTechniques(models.Model):
     technique = models.CharField(max_length=150)
 
+    def __str__(self):
+        return self.technique
+
 
 class ProgrammingLanguages(models.Model):
     language = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.language
 
 
 class Image(models.Model):
@@ -36,3 +57,6 @@ class PortfolioItem(models.Model):
     programminglanguages = models.ManyToManyField(ProgrammingLanguages)
     programmingtechniques = models.ManyToManyField(ProgrammingTechniques)
     gitHub_item_url = models.CharField(max_length=500, help_text=_("Github url from the project"))
+
+    def __str__(self):
+        return self.title
