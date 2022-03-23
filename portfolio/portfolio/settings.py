@@ -155,9 +155,7 @@ LANGUAGES = (
 USE_L10N = True
 
 # Contains the path list where Django should look into for django.po files for all supported languages
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale/'),
-)
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
 # file and directory permissions
 FILE_UPLOAD_PERMISSIONS = 0o644

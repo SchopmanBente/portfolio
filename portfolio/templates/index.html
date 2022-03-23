@@ -8,12 +8,12 @@
     <aside id="me_info" class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
         <img src="{{landingpage.picture.image.url }}" class="img-thumbnail" alt="{{ landingpage.picture.caption }}">
         <div class="col-1 col-sm-1 col-xs-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
-            <a href="{{ landingpage.gitHub_url }}">
+            <a href="{{ landingpage.gitHub_url_nl }}">
                 <img src="{% static 'images/githublogo_80887.png' %}" alt="View my projects on Github">
             </a>
         </div>
         <div class="col-1 col-sm-1 col-xs-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
-            <a href="{{ landingpage.linkedin_url }}"><img src="{% static 'images/linkedin_logo_icon_143562.png' %}"
+            <a href="{{ landingpage.linkedin_url_nl }}"><img src="{% static 'images/linkedin_logo_icon_143562.png' %}"
                                                           alt="View my experience on LinkedIn"></a>
         </div>
     </aside>
@@ -21,24 +21,11 @@
         <h1> {{ landingpage.title }} </h1>
         <h2> {{ landingpage.subtitle }}</h2>
         <p>{{ landingpage.about}}</p>
-        <p>    {{ MEDIA_URL}}{{ landingpage.cv.url }}
-            {{ landingpage.cv.url }}</p>
         <article id="actions">
-             {% if  LANGUAGE_CODE.selected == EN %}
-            <a href="mailto:{{  landingpage.email_EN }}" class="">Contact me!</a> or
-            {% else %}
-            <a href="mailto:{{  landingpage.email_NL }}">Neem contact met mij op! </a> of
-            {% endif %}
-            {% if  LANGUAGE_CODE.selected == EN %}
-            <a href="{{MEDIA_URL}}/documents/CV_BenteSchopman_EN_qpfpTQi.pdf" download> Download my CV!</a> or
-            {% else %}
-            <a href="{{MEDIA_URL}}documents/CV_BenteSchopman_NL_wjMXAb0.pdf" download> Download mijn CV!</a> of
-            {% endif %}
-            {% if  LANGUAGE_CODE.selected == EN %}
-            <a href="{% url 'app_portfolio:index' %}">Learn more about me!</a>
-            {% else %}
-             <a href="{% url 'app_portfolio:index' %}">Kom meer te weten over mij!</a>
-            {%endif %}
+            <a href="mailto:{{  landingpage.email_en }}" class="mustard"> {% trans "Contact me!" %}</a> {% trans "or"  %}
+            <a href="{{MEDIA_URL}}/documents/CV_BenteSchopman_EN_qpfpTQi.pdf" class="mustard" download> {% trans "Download my CV!" %}</a> {% trans "or"  %}
+            <a href="{% url 'app_portfolio:index' %}"  class="mustard" >{% trans "Learn more about me!" %}</a>
+
 
 
         </article>

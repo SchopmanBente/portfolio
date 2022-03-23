@@ -9,27 +9,6 @@ import os
 
 
 # Create your models here
-class NavigationApp(models.Model):
-    app = models.CharField(max_length=250)
-
-    def __str__(self):
-        return self.app
-
-
-class NavigationPosition(models.Model):
-    position = models.IntegerField()
-
-    def __str__(self):
-        return str(self.position)
-
-
-class NavigationAppPosition(models.Model):
-    app = models.ForeignKey(NavigationApp, on_delete=models.CASCADE)
-    position = models.ForeignKey(NavigationPosition, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "app: {} position: {}".format(self.app, str(self.position))
-
 class Image(models.Model):
     caption =  models.CharField(max_length=50)
     image = models.ImageField(upload_to='images',help_text=_("Choose a picture for the landingpage"))

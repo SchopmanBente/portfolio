@@ -1,7 +1,7 @@
 
 
 body{
-    background: white url("images/python_logo_tiles_more.png") repeat;
+    background: white url("/static/images/python_logo_tiles_more.png") repeat;
 
 }
 
@@ -42,4 +42,20 @@ landingpage_row{
      width: 55%;
      align: right;
      justify-content: center
+}
+
+,astral {
+    color:#3473A5;
+}
+
+,bright-sun {
+    color:#FCD343;
+}
+
+.calypso {
+    color: #346C94;
+}
+
+#actions > a.mustard {
+    color: #FCDF54;
 }

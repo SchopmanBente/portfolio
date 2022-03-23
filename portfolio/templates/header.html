@@ -5,10 +5,18 @@
         <div class="collapse" id="navbarToggleExternalContent" data-target="#navHeaderCollapse">
             <div class="bg-dark p-4">
                 <ul>
-                    <li><a href="{% url 'app_landingspage:index' %}"> Home</a> </li>
-                    <li><a href="{% url 'app_portfolio:index' %}"> Portfolio <a></li>
-                    <li><a href="{% url 'app_skills:index'%}"> Skills </a></li>
-                    <li><a href="{% url 'app_workexperience:index' %}">Workexperience</a></li>
+                    <li>
+                        <a href="{% url 'app_landingspage:index' %}"> {% trans "Home" %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'app_portfolio:index' %}"> {% trans "Portfolio" %}<a>
+                    </li>
+                    <li>
+                        <a href="{% url 'app_skills:index'%}"> {% trans "Skills" %} </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'app_workexperience:index' %}"> {% trans "Workexperience" %}</a>
+                    </li>
                 </ul>
                 <form action="{% url 'set_language' %}" method="post"
                       class="form-group col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
@@ -27,6 +35,8 @@
                     </select>
                     <input type="submit" class="btn btn-primary col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2" value="Go">
                 </form>
+                  {% get_current_language as LANGUAGE_CODE %}
+                 LANGUAGE_CODE: {{ LANGUAGE_CODE }}
             </div>
         </div>
         <nav class="navbar navbar-dark bg-dark">
