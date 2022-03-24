@@ -1,16 +1,51 @@
 
 
 body{
-    background: white url("/static/images/python_logo_tiles_more.png") repeat;
-
+    font-family: Ubuntu, "times new roman", times, roman, serif
 }
+
+
 
 header {
     background-color: #346C94;
     color: #FCDF54;
+    justify-content: center;
+}
+
+header > div > nav{
+     color: #FCDF54;
+}
+
+
+@media(min-width: 1200px){
+
+    #navbarToggleExternalContent > div > ul{
+        align-content: center;
+        align-items: center;
+        box-sizing: content-box;
+        width: 100%;
+        padding: 5px;
+    }
 
 }
 
+
+@media(min-width: 1200px){
+
+    #navbarToggleExternalContent > div {
+        float: left;
+        list-style: none;
+        height: 300px;
+}
+
+@media(min-width: 1200px){
+
+    #navbarToggleExternalContent > div > ul > li > a.mustard{
+        color:  #FCDF54;
+        font-family: Ubuntu, "times new roman", times, roman, serif
+        justify-content: center;
+    }
+ }
 div#container {
     align-content: center;
     background-color: #346C94;
@@ -22,28 +57,40 @@ footer {
     background-color: #346C94;
     color: #FCDF54
 }
+
+
+.center {
+margin: auto;
+width: 100%;
+padding: 1px;
+}
 landingpage_row{
     align-content: center;
     background-color: #346C94;
     color: #FCDF54
     position: relative;
+    font-family: Ubuntu, "times new roman", times, roman, serif
 }
 #me_info{
     background-color: #346C94;
     color: #FCDF54;
-    width: 35%;
     align: left;
-    justify-content: center
+    width: 40%;
+    justify-content: center;
+    font-family: Ubuntu, "times new roman", times, roman, serif
 
 }
 #landingpage_content {
      background-color: #346C94;
      color: #FCDF54;
-     width: 55%;
+     width: 60%;
      align: right;
-     justify-content: center
+     justify-content: center;
+     font-family: Ubuntu, "times new roman", times, roman, serif
 }
-
+body > div{
+    background: white url("/static/images/python_logo_tiles_more.png") space;
+}
 ,astral {
     color:#3473A5;
 }
