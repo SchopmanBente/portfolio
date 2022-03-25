@@ -18,6 +18,9 @@ header > div > nav{
      color: #FCDF54;
 }
 
+span#nav-btn-toggler-icon {
+    color: red;
+}
 
 @media(min-width: 1200px){
 
@@ -54,7 +57,11 @@ div#container {
     color: #FCDF54;
     padding-bottom: 2.5rem;
 }
-
+.centered {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
 footer {
     align-content: center;
     background-color: #346C94;
@@ -65,12 +72,14 @@ footer {
     height: 2.5rem;
 }
 
-landingpage_row{
+#landingpage_row{
     align-content: center;
     background-color: #346C94;
     color: #FCDF54
     position: relative;
-    font-family: Ubuntu, "times new roman", times, roman, serif
+    font-family: Ubuntu, "times new roman", times, roman, serif;
+    margin-top: 250px;
+    margin-bottom: 250px;
 }
 #me_info{
     background-color: #346C94;
@@ -81,6 +90,14 @@ landingpage_row{
     font-family: Ubuntu, "times new roman", times, roman, serif
 
 }
+#picture-of-me {
+
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
 #landingpage_content {
      background-color: #346C94;
      color: #FCDF54;
@@ -89,6 +106,32 @@ landingpage_row{
      justify-content: center;
      font-family: Ubuntu, "times new roman", times, roman, serif
 }
+
+
+#landingspage-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#landingspage-subtitle,
+#landingspage-about,
+#actions {
+    margin-bottom: 20px;
+}
+
+#Github-logo-img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#Linkedin-logo-img {
+    margin-top: 20px;
+    left: 200px;
+}
+
+
+
+
 
 ,astral {
     color:#3473A5;
