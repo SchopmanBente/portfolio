@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-24 14:22+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app_landingpage/models.py:14 app_portfolio/models.py:22
+msgid "Choose a picture for the landingpage"
+msgstr "Kies een foto voor de landingspagina"
+
+#: app_landingpage/models.py:28
+msgid "Upload your CV!"
+msgstr "Upload je CV!"
+
+#: app_landingpage/models.py:43
+msgid "Title"
+msgstr "Titel"
+
+#: app_landingpage/models.py:44
+msgid "Subtitle"
+msgstr "Subtitel"
+
+#: app_landingpage/models.py:45
+msgid "About"
+msgstr "Over"
+
+#: app_landingpage/models.py:46
+msgid "Github_url"
+msgstr ""
+
+#: app_landingpage/models.py:47
+msgid "LinkedIn url"
+msgstr ""
+
+#: app_landingpage/models.py:49
+msgid "How can people reach you?"
+msgstr "Hoe kunnen mensen je bereiken?"
+
+#: app_portfolio/models.py:37
+msgid "Github url from the project"
+msgstr "Github url van het project"
+
+#: portfolio/settings.py:147
+msgid "Dutch"
+msgstr "Nederlands"
+
+#: portfolio/settings.py:148
+msgid "English"
+msgstr "Engels"
+
+#: templates/header.html:9
+msgid "Home"
+msgstr "Home"
+
+#: templates/header.html:12
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: templates/header.html:15
+msgid "Skills"
+msgstr "Vaardigheden"
+
+#: templates/header.html:18
+msgid "Workexperience"
+msgstr "Werkervaring"
+
+#: templates/index.html:25
+msgid "Contact me!"
+msgstr "Email me!"
+
+#: templates/index.html:25 templates/index.html:26
+msgid "or"
+msgstr "of"
+
+#: templates/index.html:26
+msgid "Download my CV!"
+msgstr "Download mijn CV!"
+
+#: templates/index.html:27
+msgid "Learn more about me!"
+msgstr "Leer meer over mij!"

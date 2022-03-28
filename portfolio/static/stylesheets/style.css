@@ -1,10 +1,398 @@
-body{
-    background-color: #fff;
+/* sizes grid:
+
+   prefix: max-width
+	.col- : none
+	.col-sm- : 540px
+	.col-md- : 720px
+	.col-lg- : 	960px
+	.col-xl- : 1140px
+	.col-xxl- : 1320px
+
+
+*/
+
+div#page-container {
+  font-family: Ubuntu, "times new roman", times, roman, serif;
+  background: white url("/static/images/python_logo_tiles_more.png") space;
+  position: relative;
+  min-height: 100vh;
+
 }
-landingpage_row{
+
+header {
+    background-color: #346C94;
+    color: #FCD343;
+    justify-content: center;
+}
+
+
+header > div > nav{
+     color: #FCD343;
+}
+@media(min-width: 1200px){
+    #navbarToggleExternalContent > div > ul:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+}
+@media(min-width: 1200px){
+    #navbarToggleExternalContent > div > ul > li {
+      float: left;
+    }
+}
+
+span#nav-btn-toggler-icon {
+    color: red;
+}
+
+@media(min-width: 1200px){
+
+    #navbarToggleExternalContent > div > ul{
+        width: 80%;
+        height: 10px;
+        padding: 5px;
+    }
+
+}
+
+
+@media(min-width: 1200px){
+
+    #navbarToggleExternalContent > div {
+        float: left;
+        list-style: none;
+        height: 300px;
+}
+
+@media(min-width: 1200px){
+
+    #navbarToggleExternalContent > div > ul > li > a{
+        color:  #FCD343;
+        font-family: Ubuntu, "times new roman", times, roman, serif
+        justify-content: center;
+    }
+ }
+div#container {
     align-content: center;
+    background-color: #346C94;
+    color: #FCDF54;
+    padding-bottom: 2.5rem;
 }
+.centered {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+footer {
+    align-content: center;
+    background-color:#346C94;;
+    color: #FCD343;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+@media(min-width: 540px){
+    footer {
+        align-content: center;
+        background-color:#346C94;;
+        color: #FCD343;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    }
+}
+
+@media(min-width: 720px){
+    footer {
+        align-content: center;
+        background-color:#346C94;;
+        color: #FCD343;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    }
+ }
+ @media(min-width: 960px){
+    footer {
+        align-content: center;
+        background-color:#346C94;;
+        color: #FCD343;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    }
+ }
+@media(min-width: 1140px){
+      footer {
+        align-content: center;
+        background-color:#346C94;;
+        color: #FCD343;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    }
+}
+ @media(min-width: 1320px){
+      footer {
+        align-content: center;
+        background-color:#346C94;;
+        color: #FCD343;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    }
+ }
+/* LandingsPage */
+  #landingpage_row{
+        align-content: center;
+        background-color: #346C94;
+        color: #FCDF54
+        position: relative;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+        margin-top: 250px;
+        margin-bottom: 250px;
+    }
+@media(min-width: 540px){
+
+    #landingpage_row{
+        align-content: center;
+        background-color: #346C94;
+        color: #FCDF54
+        position: relative;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+        margin-top: 250px;
+        margin-bottom: 250px;
+    }
+ }
+ @media(min-width: 720px){
+
+    #landingpage_row{
+        align-content: center;
+        background-color: #346C94;
+        color: #FCDF54
+        position: relative;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+        margin-top: 250px;
+        margin-bottom: 250px;
+    }
+ }
+ @media(min-width: 960px){
+
+    #landingpage_row{
+        align-content: center;
+        background-color: #346C94;
+        color: #FCDF54
+        position: relative;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+        margin-top: 250px;
+        margin-bottom: 250px;
+    }
+ }
+ @media(min-width: 1140px){
+
+    #landingpage_row{
+        align-content: center;
+        background-color: #346C94;
+        color: #FCDF54
+        position: relative;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+        margin-top: 250px;
+        margin-bottom: 250px;
+    }
+ }
+@media(min-width: 1320px){
+
+    #landingpage_row{
+        align-content: center;
+        background-color: #346C94;
+        color: #FCDF54
+        position: relative;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+        margin-top: 250px;
+        margin-bottom: 250px;
+    }
+ }
+
+
+#me_info{
+    background-color: #346C94;
+    color: #FCDF54;
+    align: left;
+    width: 40%;
+    justify-content: center;
+    font-family: Ubuntu, "times new roman", times, roman, serif;
+
+}
+
+@media(min-width: 540px){
+    #me_info{
+        background-color: #346C94;
+        color: #FCDF54;
+        align: left;
+        width: 40%;
+        justify-content: center;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+   }
+}
+@media(min-width: 720px){
+       #me_info{
+            background-color: #346C94;
+            color: #FCDF54;
+            align: left;
+            width: 40%;
+            justify-content: center;
+            font-family: Ubuntu, "times new roman", times, roman, serif;
+       }
+}
+
+@media(min-width: 960px){
+
+    #me_info{
+        background-color: #346C94;
+        color: #FCDF54;
+        align: left;
+        width: 40%;
+        justify-content: center;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+
+    }
+}
+
+@media(min-width: 1140px){
+     #me_info{
+        background-color: #346C94;
+        color: #FCDF54;
+        align: left;
+        width: 40%;
+        justify-content: center;
+        font-family: Ubuntu, "times new roman", times, roman, serif;
+
+     }
+}
+
+@media(min-width: 1320px){
+        #me_info {
+            background-color: #346C94;
+            color: #FCDF54;
+            align: left;
+            width: 40%;
+            justify-content: center;
+            font-family: Ubuntu, "times new roman", times, roman, serif;
+
+       }
+}
+#picture-of-me {
+
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
 #landingpage_content {
      background-color: #346C94;
      color: #FCDF54;
+     width: 60%;
+     align: right;
+     justify-content: center;
+     font-family: Ubuntu, "times new roman", times, roman, serif;
+}
+@media(min-width: 540px){
+    #landingpage_content {
+         background-color: #346C94;
+         color: #FCDF54;
+         width: 60%;
+         align: right;
+         justify-content: center;
+         font-family: Ubuntu, "times new roman", times, roman, serif;
+    }
+}
+@media(min-width: 720px){
+  #landingpage_content {
+     background-color: #346C94;
+     color: #FCDF54;
+     width: 60%;
+     align: right;
+     justify-content: center;
+     font-family: Ubuntu, "times new roman", times, roman, serif;
+  }
+}
+@media(min-width: 960px){
+    #landingpage_content {
+         background-color: #346C94;
+         color: #FCDF54;
+         width: 60%;
+         align: right;
+         justify-content: center;
+         font-family: Ubuntu, "times new roman", times, roman, serif;
+    }
+}
+@media(min-width: 1140px){
+    #landingpage_content {
+         background-color: #346C94;
+         color: #FCDF54;
+         width: 60%;
+         align: right;
+         justify-content: center;
+         font-family: Ubuntu, "times new roman", times, roman, serif;
+    }
+}
+
+
+@media(min-width: 1320px){
+    #landingpage_content {
+         background-color: #346C94;
+         color: #FCDF54;
+         width: 60%;
+         align: right;
+         justify-content: center;
+         font-family: Ubuntu, "times new roman", times, roman, serif;
+    }
+}
+#landingspage-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#landingspage-subtitle,
+#landingspage-about,
+#actions {
+    margin-bottom: 20px;
+}
+
+#Github-logo-img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#Linkedin-logo-img {
+    margin-top: 20px;
+    left: 200px;
+}
+
+
+
+
+
+,astral {
+    color:#3473A5;
+}
+
+,bright-sun {
+    color:#FCD343;
+}
+
+.calypso {
+    color: #346C94;
+}
+
+#actions > a.mustard {
+    color: #FCDF54;
 }

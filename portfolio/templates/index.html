@@ -1,32 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
+
 <div class="row" id="landingpage_row">
 
     <aside id="me_info" class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-        <img src="{{MEDIA_URL}}{{ landingpage.picture }}"/>
-        <img src="http://127.0.0.1:8000/uploads/{{ MEDIA_URL }}{{ landingpage.picture }}" alt="Bente Schopman"
-             class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">>
-        <div class="col-1 col-sm-1 col-xs-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
-            <a href="{{ landingpage.github_url }}">
-                <img src="{% static 'images/githublogo_80887.png' %}" alt="View my projects on Github">
-            </a>
-        </div>
-        <div class="col-1 col-sm-1 col-xs-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1">
-            <a href="{{ landingpage.linkedin_url }}"><img src="{% static 'images/linkedin_logo_icon_143562.png' %}"
-                                                          alt="View my experience on LinkedIn"></a>
+        <img src="{{landingpage.picture.image.url }}" class="img-thumbnail" id="picture-of-me" width="300" height="300"
+             alt="{{ landingpage.picture.caption }}">
+        <div id="external-links">
+            <div class="col-1 col-sm-1 col-xs-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1" id="Github-logo-img">
+                <a href="{{ landingpage.gitHub_url_nl }}">
+                    <img src="{% static 'images/githublogo_80887.png' %}" alt="View my projects on Github">
+                </a>
+            </div>
+            <div class="col-1 col-sm-1 col-xs-1 col-md-1 col-lg-1 col-xl-1 col-xxl-1" id="Linkedin-logo-img">
+                <a href="{{ landingpage.linkedin_url_nl }}"><img
+                        src="{% static 'images/linkedin_logo_icon_143562.png' %}"
+                        alt="View my experience on LinkedIn"></a>
+            </div>
         </div>
     </aside>
-    <section id="landingpage_content">
-        <h1> {{ landingpage.title }} </h1>
-        <h2> {{ landingpage.subtitle }}</h2>
-        <p>{{ landingpage.about}}</p>
+    <main id="landingpage_content">
+        <h1 id="landingspage-title"> {{ landingpage.title }} </h1>
+        <h2 id="landingspage-subtitle"> {{ landingpage.subtitle }}</h2>
+        <p id="landingspage-about">{{ landingpage.about}}</p>
         <article id="actions">
-            <a href="mailto:{{  landingpage.email }}">Contact me!</a> or
-            <a>Download my CV!</a> or
-           <a href="{% url 'app_portfolio:index' %}">Learn more about me!</a>
+            <a href="mailto:{{  landingpage.email_en }}" class="mustard"> {% trans "Contact me!" %}</a> {% trans "or" %}
+            <a href="{{MEDIA_URL}}/documents/CV_BenteSchopman_EN_qpfpTQi.pdf" class="mustard" download> {% trans "Download my CV!" %}</a> {% trans "or" %}
+            <a href="{% url 'app_portfolio:index' %}" class="mustard">{% trans "Learn more about me!" %}</a>
+
 
         </article>
-    </section>
+    </main>
 </div>
 {% endblock %}

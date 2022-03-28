@@ -1,0 +1,52 @@
+{% load static %}
+{% load i18n %}
+<header>
+    <div class="content-header">
+        <div class="collapse" id="navbarToggleExternalContent" data-target="#navHeaderCollapse">
+            <div class="nav-content">
+                <ul>
+                    <li>
+                        <a href="{% url 'app_landingspage:index' %}"  class="mustard navbar-text"> {% trans "Home" %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'app_portfolio:index' %}"  class="mustard navbar-text "> {% trans "Portfolio" %}<a>
+                    </li>
+                    <li>
+                        <a href="{% url 'app_skills:index'%}"  class="mustard navbar-text"> {% trans "Skills" %} </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'app_workexperience:index' %}"  class="mustard navbar-text"> {% trans "Workexperience" %}</a>
+                    </li>
+                </ul>
+                <form action="{% url 'set_language' %}" method="post"
+                      class="form-inline col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                    <select name="language" class="form-control">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" class="btn btn-primary col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2" value="Go">
+                </form>
+                  {% get_current_language as LANGUAGE_CODE %}
+                 LANGUAGE_CODE: {{ LANGUAGE_CODE }}
+            </div>
+        </div>
+        <nav class="navbar navbar-light" style="background-color: #346C94;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+             </button>
+        </nav>
+
+    </div>
+
+
+
+</header>
