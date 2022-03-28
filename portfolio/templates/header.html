@@ -6,20 +6,20 @@
             <div class="nav-content">
                 <ul>
                     <li>
-                        <a href="{% url 'app_landingspage:index' %}"  class="mustard"> {% trans "Home" %}</a>
+                        <a href="{% url 'app_landingspage:index' %}"  class="mustard navbar-text"> {% trans "Home" %}</a>
                     </li>
                     <li>
-                        <a href="{% url 'app_portfolio:index' %}"  class="mustard"> {% trans "Portfolio" %}<a>
+                        <a href="{% url 'app_portfolio:index' %}"  class="mustard navbar-text "> {% trans "Portfolio" %}<a>
                     </li>
                     <li>
-                        <a href="{% url 'app_skills:index'%}"  class="mustard"> {% trans "Skills" %} </a>
+                        <a href="{% url 'app_skills:index'%}"  class="mustard navbar-text"> {% trans "Skills" %} </a>
                     </li>
                     <li>
-                        <a href="{% url 'app_workexperience:index' %}"  class="mustard"> {% trans "Workexperience" %}</a>
+                        <a href="{% url 'app_workexperience:index' %}"  class="mustard navbar-text"> {% trans "Workexperience" %}</a>
                     </li>
                 </ul>
                 <form action="{% url 'set_language' %}" method="post"
-                      class="form-group col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                      class="form-inline col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}">
                     <select name="language" class="form-control">
@@ -39,13 +39,12 @@
                  LANGUAGE_CODE: {{ LANGUAGE_CODE }}
             </div>
         </div>
-        <nav class="navbar navbar-light" style="background-color:#346C94;">
-            <button class="navbar-toggler" type="button" id="nav-btn-toggler" data-toggle="collapse"
-                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" id="nav-btn-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-light" style="background-color: #346C94;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+             </button>
         </nav>
+
     </div>
 
 

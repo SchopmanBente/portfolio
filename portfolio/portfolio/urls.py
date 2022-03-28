@@ -31,7 +31,10 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 i18n_patterns = [
-    path('nl', include('app_landingpage.urls')),
+    path(' ', include('app_landingpage.urls',namespace='landingpage')),
+    path('nl/vaardigheden', include('app_skills.urls', namespace='skills')),
+    path('nl/werk', include('app_workexperience.urls', namespace='work')),
+    path('nl/portfolio', include('app_portfolio.urls', namespace='portfolio')),
     path('nl/admin', admin.site.urls),
 ]
 urlpatterns += i18n_patterns
