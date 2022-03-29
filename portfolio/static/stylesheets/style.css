@@ -61,8 +61,12 @@ span#nav-btn-toggler-icon {
 
     #navbarToggleExternalContent > div {
         float: left;
+        height: 100px;
+}
+@media(min-width: 1200px){
+    #navbarToggleExternalContent > div > ul > li{
         list-style: none;
-        height: 300px;
+    }
 }
 
 @media(min-width: 1200px){
@@ -377,6 +381,7 @@ footer {
     left: 200px;
 }
 /* Portfolio */
+/*
 portfolio_row{
   align-content: center;
   background-color: #346C94;
@@ -445,8 +450,39 @@ portfolio_row{
     }
 }
 
+#portfolio_row {
+   background-color: #346C94;
+   color: #FCDF54;
+   font-family: Ubuntu, "times new roman", times, roman, serif;
+}
+#portfolio {
+   background-color: #346C94;
+   color: #FCDF54;
+   font-family: Ubuntu, "times new roman", times, roman, serif;
+}
+*/
+#portfolio_row {
+    width: 70%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: auto;
+    background-color: #346C94;
+   color: #FCDF54;
+   font-family: Ubuntu, "times new roman", times, roman, serif;
+}
+h1#portfolio_title {
+   background-color: #346C94;
+   color: #FCDF54;
+   font-family: Ubuntu, "times new roman", times, roman, serif;
+}
 
-
+aside#filters{
+    align: left;
+    width: 10%;
+    background-color: #346C94;
+   color: #FCDF54;
+   font-family: Ubuntu, "times new roman", times, roman, serif;
+}
 
 ,astral {
     color:#3473A5;
