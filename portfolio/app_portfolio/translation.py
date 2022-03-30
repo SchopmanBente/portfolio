@@ -1,5 +1,5 @@
 from modeltranslation.translator import  translator, TranslationOptions
-from .models import ProgrammingTechnique,ProgrammingLanguage,Image,PortfolioItem, Tag
+from .models import ProgrammingTechnique,ProgrammingLanguage,Image,PortfolioItem, Tag, OperatingSystem, Competence
 
 class TagTranslationOptions(TranslationOptions):
     fields = ('tag',)
@@ -16,8 +16,15 @@ class ImageTranslationOptions(TranslationOptions):
 class PortfolioItemTranslationOptions(TranslationOptions):
     fields = ('image', 'title', 'description', 'gitHub_item_url',)
 
+class OperatingSystemTranslationOptions(TranslationOptions):
+    fields = ('os', )
+
+class CompetenceTranslationOptions(TranslationOptions):
+    fields = ('skill',)
 translator.register(ProgrammingTechnique,ProgrammingTechniqueTranslationOptions)
 translator.register(ProgrammingLanguage,ProgrammingLanguageTranslationOptions)
 translator.register(Image,ImageTranslationOptions)
 translator.register(PortfolioItem,PortfolioItemTranslationOptions)
 translator.register(Tag,TagTranslationOptions)
+translator.register(OperatingSystem, OperatingSystemTranslationOptions)
+translator.register(Competence,CompetenceTranslationOptions)
