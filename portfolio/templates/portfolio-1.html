@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% block meta %}
+<meta id="programminglanguages" data-name="{{ programminglanguages}}">
+{% endblock %}
 {% block content %}
 <div class="row" id="portfolio_row">
     <main id="portfolio">
@@ -9,9 +12,11 @@
         <nav id="filters" role="navigation">
 
         </nav>
-
-
-
+        <div class="col-sm-3">
+            {% for person, data in data.items %}
+            {{ person }} - {{ data }} <br>
+            {% endfor %}
+        </div>
     </main>
 </div>
 {% endblock %}

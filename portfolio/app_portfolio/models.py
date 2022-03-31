@@ -8,7 +8,12 @@ class OperatingSystem(models.Model):
 
     def __str__(self):
         return self.os
-    
+
+class Framework(models.Model):
+    framework = models.CharField(max_length=100)
+
+    def __str__(self):
+        return  self.framework
 
 class Competence(models.Model):
     skill = models.CharField(max_length=75)
@@ -57,6 +62,7 @@ class PortfolioItem(models.Model):
     competence = models.ManyToManyField(Competence)
     programminglanguages = models.ManyToManyField(ProgrammingLanguage)
     programmingtechniques = models.ManyToManyField(ProgrammingTechnique)
+    frameworks = models.ManyToManyField(Framework)
     gitHub_item_url = models.CharField(max_length=500, help_text=_("Github url from the project"))
     tag = models.ManyToManyField(Tag)
     images = models.ManyToManyField(Image, related_name='project_images+')
