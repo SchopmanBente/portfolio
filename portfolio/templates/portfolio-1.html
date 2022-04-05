@@ -3,6 +3,10 @@
 {% load i18n %}
 {% block meta %}
 <meta id="programminglanguages" data-name="{{ programminglanguages}}">
+<meta id="programmingtechniques" data-name="{{ programmingtechniques}}">
+<meta id="frameworks" data-name="{{ frameworks}}">
+<meta id=" competence" data-name="{{competence}}">
+<meta id="oses" data-name="{{oses}}">
 {% endblock %}
 {% block content %}
 <div class="row" id="portfolio_row">
@@ -12,11 +16,6 @@
         <nav id="filters" role="navigation">
 
         </nav>
-        <div class="col-sm-3">
-            {% for person, data in data.items %}
-            {{ person }} - {{ data }} <br>
-            {% endfor %}
-        </div>
     </main>
 </div>
 {% endblock %}
