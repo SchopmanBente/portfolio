@@ -4,7 +4,7 @@ var programminglanguagesIsOpen = false;
 
 
 function showFilters() {
-    var djangoData = $('#programminglanguages').data();
+
 
   var tag = document.createElement("div");
   tag.setAttribute("id","dynamic-filters");
@@ -18,8 +18,10 @@ function showFilters() {
    var text0 = document.createTextNode(" programminglanguages ");
    filter0.appendChild(text0);
 */
-    var arr = Object.values(djangoData)[0]
-    var filter0 = createFilterName("programminglanguages", arr, arr.length)
+    var djangoData = $('#programminglanguages').data();
+    alert(djangoData.values);
+    var arr = Object.values(djangoData)[0];
+    var filter0 = createFilterName("programminglanguages", djangoData, arr.length);
 
     //filter0.setAttribute("onclick", "toggleFiltersFromChoosenFilter('programminglanguages',   programminglanguagesIsOpen )")
     tag.appendChild(filter0)
@@ -91,12 +93,13 @@ function removeFilters() {
   isOpen = false;
 }
 
-function createIconFilter(name,djangoData, number_of_options){
+function createIconFilter(name, number_of_options){
+    console.log(number_of_options);
     var span = document.createElement("span");
     span.classList.add("material-icons");
     filter_name = name
     span.setAttribute("onclick", "toggleFiltersFromChoosenFilter(filter_name ,   programminglanguagesIsOpen )");
-    var icon = document.createTextNode("filter_list");
+var icon = document.createTextNode("filter_list");
     span.appendChild(icon);
     console.log(span);
     return span
@@ -108,7 +111,7 @@ function createFilterName(name, djangoData,number_of_options){
    filter.classList.add("list-group-item");
    var text = document.createTextNode(name)
     filter.appendChild(text);
-    var span =  createIconFilter(name)
+    var span =  createIconFilter(name, djangoData)
     filter.appendChild(span)
      filter.classList.add("list-group-item");
     return filter
@@ -116,11 +119,11 @@ function createFilterName(name, djangoData,number_of_options){
 
 
 
-function toggleFiltersFromChoosenFilter(name, djangoData, number_of_options, filterIsOpen){
+function toggleFiltersFromChoosenFilter(name,  number_of_options, filterIsOpen){
 if (filterIsOpen) {
-    hideFiltersFromChoosenFilter(name);
+    hideFiltersFromChoosenFilter(name, number_of_options);
 } else {
-    showFiltersFromChoosenFilter(name,djangoData,number_of_options);
+    showFiltersFromChoosenFilter(name,number_of_options);
 }
 
 }
@@ -131,27 +134,51 @@ function hideFiltersFromChoosenFilter(name){
     alert(name)
 }
 
-function showFiltersFromChoosenFilter(name,djangoData,number_of_options){
+function showFiltersFromChoosenFilter(name,number_of_options){
+    alert("Ik werk hoor! (0)")
     var ul = document.createElement("ul");
     ul.classList.add("list-group");
+    id = '#'+name;
+    data = get_meta_content(id)
+    alert("Ik werk hoor! (1)")
+    alert(ul)
+
+    /*
     var languages = Object.values(djangoData)[0][0].fields["language"]
     console.log(languages);
+
     for (var i = 0; i < number_of_options; i++) {
         console.log(array[0][i])
     }
-
-}
-
-function getData(jsNameList){
-    var djangoData = $(jsNameList).data();
-    var converted_values = $(jsNameList).data("0");
-    return converted_values
+    */
 }
 
 function get_meta_content(id){
-    var meta_content = document.getElementById(id).getAttribute('content');
+    var djangoData = $(id).data();
+    var arr = Object.values(djangoData)[0]
+    var dict = {};
+    /*
+    var meta_content = document.getElementById("#programminglanguages").getAttribute('content');
        console.log(meta_content)
-    return meta_content
+    */
+    for (var i = 0; i < arr.length; i++) {
+        console.log((arr[i]));
+
+        for (const [key, value] of Object.entries(arr[i])) {
+            console.log(`${key}: ${value}`);
+            var keyOfObject = key
+            if(keyOfObject == "fields"){
+                for (const [key, value] of Object.entries(keyOfObject)) {
+                    console.log(`${key}: ${value}`);
+                }
+
+            }
+        }
+        dict[i] = Object.values(i)
+
+    }
+    console.log(dict);
+    return dict;
 
 }
 
