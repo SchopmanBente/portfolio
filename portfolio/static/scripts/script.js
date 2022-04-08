@@ -168,13 +168,15 @@ function get_meta_content(id){
             console.log(`${key}: ${value}`);
             var keyOfObject = key
             if(keyOfObject == "fields"){
-                for (const [key, value] of Object.entries(keyOfObject)) {
-                    console.log(`${key}: ${value}`);
-                }
-
+                var fields = value
+                console.log(fields);
+            }
+            if (keyOfObject == "pk") {
+                var pk = value
+                console.log(pk);
             }
         }
-        dict[i] = Object.values(i)
+        dict[i] = [pk, fields]
 
     }
     console.log(dict);
