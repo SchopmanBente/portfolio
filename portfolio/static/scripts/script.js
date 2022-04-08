@@ -1,14 +1,14 @@
 
 var isOpen = false;
 var programminglanguagesIsOpen = false;
-
+var selectedProgrammingLanguages = {};
 
 function showFilters() {
-
-
-  var tag = document.createElement("div");
+ var tag = document.createElement("div");
   tag.setAttribute("id","dynamic-filters");
-  var tag1 = document.createElement("ul")
+  var form = createForm("form_all_filters", helloWorld())
+
+  var tag1 = document.createElement("ul");
   tag1.setAttribute("id","filter-list");
   tag1.classList.add("list-group");
 /*
@@ -18,13 +18,18 @@ function showFilters() {
    var text0 = document.createTextNode(" programminglanguages ");
    filter0.appendChild(text0);
 */
+
     var djangoData = $('#programminglanguages').data();
     alert(djangoData.values);
     var arr = Object.values(djangoData)[0];
     var filter0 = createFilterName("programminglanguages", djangoData, arr.length);
 
     //filter0.setAttribute("onclick", "toggleFiltersFromChoosenFilter('programminglanguages',   programminglanguagesIsOpen )")
-    tag.appendChild(filter0)
+    tag1.appendChild(filter0);
+    var submit = getSubmitButton();
+    form.appendChild(tag1);
+    //form.appendChild(submit);
+    tag.appendChild(form);
     /*
     var filters0ul = document.createElement("ul");
      filters0ul.setAttribute("id","filter-list-programminglanguages");
@@ -75,22 +80,68 @@ filter0.appendChild(filters0ul)
    tag1.appendChild(filter4)
    tag.appendChild(tag1) */
    var element = document.getElementById("filters");
-   element.appendChild(tag);
-    var arr = Object.values(djangoData)[0]
-   console.log(djangoData)
-    console.log(Object.keys(djangoData));
-    console.log(Object.values(djangoData));
-    var languages = Object.values(djangoData)[0][0].fields["language"]
-    console.log(languages);
-    var len=  arr.length;
-    console.log(len);
+   element.appendChild(form);
     isOpen = true;
 
 }
 function removeFilters() {
-  const element = document.getElementById("dynamic-filters");
+  const element = document.getElementById("filter-list");
   element.remove();
   isOpen = false;
+}
+function helloWorld(){
+    alert("hello World!")
+}
+function createForm(id, action){
+     var form = document.createElement("form");
+     form.setAttribute("type","submit");
+     form.setAttribute("id", id);
+     form.setAttribute("action",action)
+     return form
+}
+function getCheckedCheckBoxes(){
+    console.log("function getCheckedCheckBoxes()");
+}
+function getSubmitButton(data){
+    var button = document.createElement("input")
+    button.setAttribute("type","submit")
+    return button
+}
+function createSelectedFilter(data, name, number_of_options){
+    var ul = document.createElement("ul");
+    ul.classList.add("list-group");
+    filter_list_id = "filter_list_" + name;
+    ul.setAttribute("id",filter_list_id);
+    ul.setAttribute("onclick", getCheckedCheckBoxes())
+    for(var key in data) {
+        var value = data[key];
+        var pk = value["pk"];
+        var language = value["fields"]["language"];
+        console.log(pk);
+        console.log(language)
+        var li = document.createElement("li")
+        li.classList.add("list-group-item");
+        li.setAttribute("id",pk);
+        var checkbox = document.createElement("input")
+        checkbox.setAttribute("type","checkbox")
+        checkbox.setAttribute("id", pk)
+        checkbox.setAttribute("name", language)
+        var label = document.createElement("label")
+        label.setAttribute("for", language)
+        var text = document.createTextNode(language);
+        label.appendChild(text)
+        li.appendChild(checkbox)
+        li.appendChild(label)
+        console.log(li);
+        ul.appendChild(li)
+        console.log(key);
+        console.log(value);
+
+
+
+    }
+
+    return ul
 }
 
 function createIconFilter(name, number_of_options){
@@ -135,54 +186,52 @@ function hideFiltersFromChoosenFilter(name){
 }
 
 function showFiltersFromChoosenFilter(name,number_of_options){
-    alert("Ik werk hoor! (0)")
-    var ul = document.createElement("ul");
-    ul.classList.add("list-group");
+    alert("Ik werk hoor! (0)");
+
     id = '#'+name;
-    data = get_meta_content(id)
-    alert("Ik werk hoor! (1)")
-    alert(ul)
+    data = get_meta_content(id);
+    filters = createSelectedFilter(data,name, number_of_options);
+    element = document.getElementById("filter_list_programminglanguages")
+    if (typeof(element) != 'undefined' && element != null){
+        const element = document.getElementById("filter_list_programminglanguages");
+        element.remove();
+        programminglanguagesIsOpen = false;
+        return "";
+    } else {
 
-    /*
-    var languages = Object.values(djangoData)[0][0].fields["language"]
-    console.log(languages);
+        html_filters = document.getElementById("form_all_filters").append(filters);
+        return html_filters;
 
-    for (var i = 0; i < number_of_options; i++) {
-        console.log(array[0][i])
     }
-    */
+
+
 }
 
 function get_meta_content(id){
     var djangoData = $(id).data();
     var arr = Object.values(djangoData)[0]
     var dict = {};
-    /*
-    var meta_content = document.getElementById("#programminglanguages").getAttribute('content');
-       console.log(meta_content)
-    */
+
     for (var i = 0; i < arr.length; i++) {
-        console.log((arr[i]));
 
         for (const [key, value] of Object.entries(arr[i])) {
-            console.log(`${key}: ${value}`);
             var keyOfObject = key
             if(keyOfObject == "fields"){
                 var fields = value
-                console.log(fields);
             }
             if (keyOfObject == "pk") {
                 var pk = value
-                console.log(pk);
             }
         }
-        dict[i] = [pk, fields]
+        dict[i] = {pk, fields};
 
     }
     console.log(dict);
     return dict;
 
 }
+
+
 
 var btn = document.getElementById('filter');
 
