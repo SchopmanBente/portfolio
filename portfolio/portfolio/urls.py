@@ -20,7 +20,7 @@ from django.urls import path, include
 from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('change_site', admin.site.urls),
     path('', include('app_landingpage.urls', namespace='landingpage')),
     path('skills/', include('app_skills.urls', namespace='skills')),
     path('work/', include('app_workexperience.urls', namespace='work')),

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-
+from environs import Env
 from django.utils.translation import gettext_lazy as _
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -22,9 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
+env = Env()
+env.read_env()
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!dw%vvm0t7)wodn$-)f=p+&9!!@qmsbu6c0(v3+5#mdpu*auco'
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'modeltranslation',
+    'django_admin_env_notice',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
                 'django.template.context_processors.media',
+                "django_admin_env_notice.context_processors.from_settings",
             ],
         },
     },
@@ -160,3 +163,9 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 # file and directory permissions
 FILE_UPLOAD_PERMISSIONS = 0o644
 FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o777
+
+#envs
+ENVIRONMENT_NAME = "Development server"
+ENVIRONMENT_COLOR = "#FF2222"
+ENVIRONMENT_ADMIN_SELECTOR = "grp-header"
+ENVIRONMENT_TEXT_COLOR = "#00FF00"
